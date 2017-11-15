@@ -1,0 +1,19 @@
+[
+  {
+    "batchNumber": "1",
+    "startDate": "01-01-2015",
+    "endDate": "01-03-2015",
+    "students": [
+      {
+        "name": "John Ruth",
+        "evaluation": [
+          {
+            "colorCode": "green",
+            "date": "01-02-2015",
+            "description": "OK"
+            }
+        ]
+      }
+    ]
+  }
+]

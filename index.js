@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const { students, users, sessions } = require('./routes')
+const { batches, users, sessions } = require('./routes')
 const passport = require('./config/auth')
 const http = require('http')
 
@@ -16,7 +16,7 @@ app
 
   .use(users)
   .use(sessions)
-  .use(students)
+  .use(batches)
 
 
   // catch 404 and forward to error handler
