@@ -6,10 +6,7 @@ const passport = require('./config/auth')
 const http = require('http')
 
 const port = process.env.PORT || 3030
-const app = express()
-const server = http.Server(app)
-
-
+let app = express()
 
 app
   .use(cors())
@@ -17,9 +14,10 @@ app
   .use(bodyParser.json())
   .use(passport.initialize())
 
-  .use(students)
   .use(users)
   .use(sessions)
+  .use(students)
+
 
   // catch 404 and forward to error handler
   .use((req, res, next) => {

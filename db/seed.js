@@ -38,7 +38,7 @@ const authenticate = (email, password) => {
 request
   .post(createUrl('/users'))
   .send(user)
-  .then(() => {
+  .then((res) => {
     console.log('User created!')
     return authenticate(user.email, user.password)
   })
