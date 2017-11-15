@@ -1,4 +1,3 @@
-// routes/sessions.js
 const router = require('express').Router()
 const jwt = require('jsonwebtoken')
 const passport = require('../config/auth')
