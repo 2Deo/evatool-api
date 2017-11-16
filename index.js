@@ -6,7 +6,8 @@ const passport = require('./config/auth')
 const http = require('http')
 
 const port = process.env.PORT || 3030
-let app = express()
+const app = express()
+const server = http.Server(app)
 
 app
   .use(cors())
