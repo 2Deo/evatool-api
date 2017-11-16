@@ -4,23 +4,26 @@ const photo = "https://www.google.nl/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&
 
 
 const evaluationSchema = new Schema({
-  colorCode: { type: String, default: "green"},
+  evaluation: { type: Number, default: 0},
   date: { type: Date, default: Date.now },
   description: { type: String }
 })
 
 const studentSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, default: "John Ruth"},
   evaluation: [evaluationSchema],
   photo: { type: String, default: photo },
-  batchId: { type: Number, ref: "batches"}
+  userId: { type: Schema.Types.ObjectId, ref: 'users' },
 })
 
 const batchSchema = new Schema({
   students: [studentSchema],
   batchNumber: { type: Number },
-  startDate: { type: String },
-  endDate: { type: String },
-})
+  startDate: { type: Date, default: Date.now },
+  endDate: { type: Date, default: Date.now },
+  userId: { type: Schema.Types.ObjectId, ref: 'users' },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+}, {usePushEach:true})
 
 module.exports = mongoose.model('batches', batchSchema)

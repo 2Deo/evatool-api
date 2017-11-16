@@ -7,11 +7,15 @@
       {
         "name": "John Ruth",
         "evaluation": [
-          {
-            "colorCode": "green",
-            "date": "01-02-2015",
-            "description": "OK"
-            }
+          {"evaluation": "1"},
+          {"evaluation": "2"}
+        ]
+      },
+      {
+        "name": "Ali Mali",
+        "evaluation": [
+          {"evaluation": "1"},
+          {"evaluation": "2"}
         ]
       }
     ]
