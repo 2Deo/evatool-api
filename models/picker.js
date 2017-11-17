@@ -2,29 +2,31 @@
 //pick a student by the color code,
 //return a new object that is keyed by priority
 
-function picker() {
-  const students = this.props.currentBatch
+picker = () => {
+  const {students} = this.props.currentBatch
 
-  const redStudents = students.filter(function(student){
-    let colorCode = student.evaluation.slice(-1)
+  const redStudents = students.reduce(function(student){
+    let colorCode = student.evaluation.slice(0)
     return student.priority === 1
   })
 
-  const yellowStudents = student.filter(function(student){
-    let colorCode = student.evaluation.slice(-1)
+  const yellowStudents = student.reduce(function(student){
+    let colorCode = student.evaluation.slice(0)
     return student.priority === 2
   })
 
-  const greenStudents = student.filter(function(student){
-    let colorCode = student.evaluation.slice(-1)
+  const greenStudents = student.reduce(function(student){
+    let colorCode = student.evaluation.slice(0)
     return student.priority === 3
   })
 
+  const red = redStudents.length
+  const yellow = yellowStudents.length
+  const green = greenStudents.length
+
   const chooseColor = Math.random()
+
 }
-
-
-
 
 
 students.json //array
