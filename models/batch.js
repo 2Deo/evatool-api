@@ -1,19 +1,19 @@
 const mongoose = require('../config/database')
 const { Schema } = mongoose
-const photo = "https://www.google.nl/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwjG7faytMHXAhVSL1AKHYG6D1MQjRwIBw&url=https%3A%2F%2Fwww.turbosquid.com%2F3d-model%2Fhead&psig=AOvVaw0IQggmAzb9-XfGON_JWJEy&ust=1510863701104328"
 
 
 const evaluationSchema = new Schema({
   evaluation: { type: Number, default: 0},
   date: { type: Date, default: Date.now },
-  description: { type: String }
+  description: { type: String },
+  colorCode: { type: String, default: "green" }
 })
 
 const studentSchema = new Schema({
   name: { type: String, default: "John Ruth"},
   evaluation: [evaluationSchema],
-  photo: { type: String, default: photo },
-  userId: { type: Schema.Types.ObjectId, ref: 'users' },
+  photo: { type: String, required: true },
+  batchId: { type: Schema.Types.ObjectId, ref: 'batches'}
 })
 
 const batchSchema = new Schema({
@@ -21,7 +21,6 @@ const batchSchema = new Schema({
   batchNumber: { type: Number },
   startDate: { type: Date, default: Date.now },
   endDate: { type: Date, default: Date.now },
-  userId: { type: Schema.Types.ObjectId, ref: 'users' },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 }, {usePushEach:true})
